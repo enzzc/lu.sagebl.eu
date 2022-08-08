@@ -19,7 +19,7 @@ as plain HTML fragments (without header or footer), e.g.:
 </main>
 ```
 
-Second, `generate.py` only produces a `build.ninja` file which describes the
+Second, `build.py` only produces a `build.ninja` file which describes the
 dependency graph. The [Ninja build system](https://ninja-build.org/) then
 generates the final HTML files into `www/` (The `src/` hierarchy is mapped into
 `www/`.)
