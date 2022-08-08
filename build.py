@@ -28,13 +28,14 @@ rule justhtml
         stem = mdfile.parent / mdfile.stem
         stem = str(stem).removeprefix(f'{src}/')
         if stem == 'index':
-            print(f'Ignore {mdfile}')
             continue
         f.write(f'build {dest}/{stem}/index.html: md2html {mdfile}\n')
 
     for hfile in Path(src).glob('**/*.html'):
         stem = hfile.parent / hfile.stem
         stem = str(stem).removeprefix(f'{src}/')
+        if stem == 'index':
+            continue
         f.write(f'build {dest}/{stem}/index.html: justhtml {hfile}\n')
 
     indexfile = Path(src) / 'index.html'
