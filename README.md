@@ -1,6 +1,6 @@
 # lu.sagebl.eu: source and generator
 
-This repos contains the source code of the website, as well as the _ad hoc_
+This repository contains the source code of the website, as well as the _ad hoc_
 static website generator.
 This static website generator is a bit special.
 
