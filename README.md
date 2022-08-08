@@ -27,7 +27,7 @@ generates the final HTML files into `www/` (The `src/` hierarchy is mapped into
 Dependencies:
  * Python 3
  * `ninja`
- * `inotifywait` (if `hot-reload` is used)
+ * `inotifywait` (if `hot-reload.sh` is used)
  * Basic UNIX tools such as `cat`, `sed`, etc.
 
 ## Usage
@@ -43,5 +43,5 @@ Then push the content of `www/` to the adequate destination.
 ### Hot-reload
 
 ```console
-$ ./hot-reload
+$ ./hot-reload.sh
 ```
