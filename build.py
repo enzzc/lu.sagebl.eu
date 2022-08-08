@@ -1,45 +1,43 @@
 #!/bin/python3
 
 import os
+import re
 from pathlib import Path
-from tempfile import mkdtemp
 
 src = 'src'
 dest = 'www'
-global_deps = ' '.join([
-    'header.html',
-    'footer.html',
-])
 
+header = 'header.html'
+footer = 'footer.html'
+
+default_title = "Lu's Website"
+
+
+pattern = re.compile(r'<h1>(.+)</h1>')
 
 with open('build.ninja', 'w') as f:
     f.write(f'''# Code generated. DO NOT EDIT.
 
-rule md2html
-  command = cmark $in | cat header.html - footer.html > $out
-  description = $in -> $out
-
 rule justhtml
-  command = cat header.html $in footer.html > $out
+  command = cat $in | sed 's/:TITLE/$title/g' > $out
   description = $in -> $out
 
 ''')
-    for mdfile in Path(src).glob('**/*.md'):
-        stem = mdfile.parent / mdfile.stem
-        stem = str(stem).removeprefix(f'{src}/')
-        if stem == 'index':
-            continue
-        f.write(f'build {dest}/{stem}/index.html: md2html {mdfile}\n')
-
     for hfile in Path(src).glob('**/*.html'):
         stem = hfile.parent / hfile.stem
         stem = str(stem).removeprefix(f'{src}/')
         if stem == 'index':
             continue
-        f.write(f'build {dest}/{stem}/index.html: justhtml {hfile}\n')
+        content = hfile.read_text(encoding='utf-8')
+        m = pattern.findall(content)
+        if not m:
+            title = default_title
+        else:
+            title = m[0].strip()
+        f.write(f'build {dest}/{stem}/index.html: justhtml {header} {hfile} {footer}\n  title = {title}\n')
 
     indexfile = Path(src) / 'index.html'
     if indexfile.is_file():
-        f.write(f'build {dest}/index.html: justhtml {indexfile}\n')
+        f.write(f'build {dest}/index.html: justhtml {header} {indexfile} {footer}\n  title = Home\n')
 
 os.system('ninja')

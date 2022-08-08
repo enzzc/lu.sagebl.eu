@@ -3,7 +3,6 @@
 Deps:
  * Python 3
  * `ninja`
- * `cmark` (if Markdown used)
  * `inotifywait` (if hot-reload used)
 
 Usage:
