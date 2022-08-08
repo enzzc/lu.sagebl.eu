@@ -9,13 +9,13 @@ Deps:
 Usage:
 
 ```console
-./build.py
+$ ./build.py
 ```
 
 Then push `www/` to dest.
 
 Hot-reload:
 
-```
-./hot-reload
+```console
+$ ./hot-reload
 ```
