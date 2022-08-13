@@ -1,0 +1,67 @@
+<!--
+-----BEGIN METADATA JSON-----
+{ "lang": "en" }
+-----END METADATA JSON-----
+-->
+<main>
+<article>
+  <h1>ZLS: A Reliable Live Streaming Protocol</h1>
+
+  <p class="warning">
+    ZLS is still experimental and subject to heavily change!
+  </p>
+
+  <p>
+    ZLS is an HTTP-based live streaming protocol that does its best to work well in difficult environments, typically outdoors using
+    a cellular network, <i>e.g.:</i> unreliable 4G/LTE or 5G. ZLS allows pushing multiples segments of different kind: video, audio, and even
+    user-defined data. The latter is pretty convenient to pass arbitrary data relative to the live stream, such as the name of the current street.
+  </p>
+  <p>
+    Goals:
+    <ul>
+        <li>Priority of stream when the connection is degraded. A stream may be temporarily
+            dropped to avoid congestion and allow other more important stream to pass. For example,
+            audio segments may pass while video segments are dropped for a few seconds until the
+            connection is strong enough again, so the audience can at least hear.
+        </li>
+        <li>
+            HTTP-based: because it makes implementing servers and clients easy.
+        </li>
+        <li>
+            Segments-based: because it makes interoparibility with the end delivery phrase easier,
+            typically using HLS or DASH. Segments can be re-used as is.
+        </li>
+
+    </ul>
+  </p>
+  <p>
+    But, why not use...
+    <ul>
+        <li>
+            RTMP?
+            <ul>
+                <li>RTMP works well in a reliable network setup, typically between a broadband connection and a Twitch POP.</li>
+                <li>It's a difficult protocol to implement and to work with.</li>
+                <li>Not really open.</li>
+            </ul>
+        </li>
+        <li>
+            SRT?
+            <ul>
+                <li>
+                    The normal version of SRT is UDP-based. It may be beneficial because of the low latency and
+                    to have control on the head-of-line blocking problem.
+                    However, we may suspect mobile carriers to treat UDP flows weirdly and unreliably.
+                </li>
+                <li>
+                    SRT supports a "too late" packet dropping mechanism, which is useful. But it cannot drop only certain
+                    kind of packets selectively natively. In ZLS, each stream has a priority level which defines how
+                    "too late" segments are dropped.
+                </li>
+            </ul>
+         </li>
+    </ul>
+
+  </p>
+</article>
+</main>

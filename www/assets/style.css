@@ -11,6 +11,11 @@ a:visited { color: #3820ac; }
 
 p { line-height: 1.6; }
 
+p.warning {
+    font-weight: 500;
+}
+p.warning:before { content:'⚠️ '; }
+
 li { list-style-type: square; }
 li:not(:last-child) {
     margin-bottom: .4em;
@@ -59,11 +64,16 @@ footer{
     font-size:.8em;
 }
 
-pre.console {
+pre.console, pre {
   background-color: black;
   color: #ececec;
   padding: 1em 1em 1em 1em;
   border-radius: 6px;
+}
+
+blockquote {
+    font-style: italic;
+    margin-left: 2em;
 }
 
 @media (prefers-color-scheme: dark) {
