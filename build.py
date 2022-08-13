@@ -28,12 +28,15 @@ rule justhtml
         stem = str(stem).removeprefix(f'{src}/')
         if stem == 'index':
             continue
+
+        # Fetch title (first <h1>)
         content = hfile.read_text(encoding='utf-8')
         m = pattern.findall(content)
         if not m:
             title = default_title
         else:
             title = m[0].strip()
+
         f.write(f'build {dest}/{stem}/index.html: justhtml {header} {hfile} {footer}\n  title = {title}\n')
 
     indexfile = Path(src) / 'index.html'
