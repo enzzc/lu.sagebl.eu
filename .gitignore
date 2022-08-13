@@ -2,4 +2,4 @@ build.ninja
 .ninja*
 .*~
 .*.swp
-www/*/**.html
+www/**/*.html
