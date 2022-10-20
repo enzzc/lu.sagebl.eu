@@ -84,3 +84,7 @@ blockquote {
     a { color: #84a2ee; }
     a:visited { color: #bb86fc; }
 }
+
+time.pubdate {
+    opacity: .7;
+}
