@@ -2,34 +2,52 @@
   <article>
     <h1>Projects</h1>
 
-    <h2> Software projects </h2>
+    <h2>Active projects</h2>
     <p>
       Right now I'm working actively on these projects. Most of them are
-      software projects written in <a href="https://go.dev/">Go</a> or 
+      software projects written in <a href="https://go.dev/">Go</a> and 
       <a href="https://www.python.org/">Python</a>.
     </p>
-    <ul>
-    <li>
-        <a href="https://hassaku.limkuat.tv/">Hassaku</a>: API/SaaS providing automagic audio enhancement. Currently a work in progress, but it should be ready soon!
-    </li>
-    <li><a href="/projects/zls/">ZLS</a>: protocol and tools to do outdoors livestreaming reliably and with QoS</li>
-    <li><a href="https://github.com/enzzc/rivulet">Rivulet</a>: Web-based minimalist RSS/Atom/JSON Feed aggregator (<a href="https://rivulet.sagebl.eu/">my public instance</a>)</li>
-    <li>
-        No-nonsense and privacy-friendly <a href="https://speed.notnotp.com/">Web speedometer</a>
-        (<a href="https://github.com/not-not-P/speed">source code</a>).
-        It has been tested on board a <a href="https://en.wikipedia.org/wiki/TGV">TGV</a> (high-speed train) with Android successfully.
-    </li>
-    <li>
-        <a href="https://github.com/enzzc/idhider">idhider</a>: experimental ID obfuscating scheme based on the Blowfish cipher. It is an alternative to using UUIDv4
-        as primary keys (such in a database) to avoid disclosing IDs publicly.
-    </li>
-    <li>Deluge: high-troughput message streaming platform supporting HTTP and gRPC</li>
-    <li><a href="https://github.com/enzzc/hurl">hurl</a>: hashed URL lookup local database. It acts like a simple key-value store. The layout is inspired by the Git object database.</li>
-    </ul>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>Hassaku</h3>
+            <p>
+                Hassaku is an API and a SaaS providing automagic audio enhancement for podcasts and voice recordings.
+                It's currently a work in progress, but a technical preview should be ready soon!
+                <br>
+                <a href="https://hassaku.limkuat.tv/">Hassaku website</a>
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>ZLS</h3>
+            <p>
+                ZLS is an HTTP-based livestreaming protocol designed to perform well under unreliable network conditions.
+                <br>
+                <a href="/projects/zls/">Read more about ZLS.</a>
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Go library: idhider</h3>
+            <p>
+                <i>idhider</i> is an experimental <code>uint64</code> ID obfuscator based on symmetric cryptography (Blowfish cipher)
+                and Base 32 for human readability.
+                <br>
+                <a href="https://github.com/enzzc/idhider">idhider on GitHub.</a>
+            </p>
+        </div>
+
+
+    </div> <!-- grid -->
+
     <p>
       <a href="https://github.com/enzzc">
-        More projects on GitHub
+        More projects on GitHub.
       </a>
     </p>
+
   </article>
 </main>
