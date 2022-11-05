@@ -2,7 +2,7 @@ body {
     color: #121212;
     margin: auto;
     padding: 1rem;
-    max-width: 650px;
+    max-width: 85ch;
     font-family: Roboto, -apple-system, 'Noto Sans', 'Droid Sans', 'Segoe UI', SegoeUI, Helvetica, 'Helvetica Neue', sans-serif;
 }
 
@@ -60,8 +60,8 @@ nav .nav-item::after {
     content: '>';
 }
 
-.starred::before {
-    content: '🌟';
+.starred::after {
+    content: ' 🌟';
 }
 
 footer{
@@ -93,4 +93,20 @@ blockquote {
 
 time.pubdate {
     opacity: .7;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3ch;
+}
+
+.grid-item {
+    flex: 0 0 41ch;
+}
+
+@media (max-width: 500px) {
+  .grid {
+    display: block;
+  }
 }
