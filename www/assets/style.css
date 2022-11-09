@@ -64,6 +64,14 @@ nav .nav-item::after {
     content: ' 🌟';
 }
 
+a.ext > * {
+    display: inline;
+}
+
+a.ext::after {
+    content: ' 🡥';
+}
+
 footer{
     margin-top: 10vh;
     margin-bottom: 1.6em;
