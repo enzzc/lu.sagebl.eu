@@ -8,6 +8,9 @@ body {
 
 a { color: #0042ea; }
 a:visited { color: #573dd0; }
+a:hover {
+    background-color: rgba(62, 0, 193, .033);
+}
 
 p { line-height: 1.6; }
 
