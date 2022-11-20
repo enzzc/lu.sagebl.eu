@@ -12,7 +12,13 @@ a:hover {
     background-color: rgba(62, 0, 193, .033);
 }
 
-p { line-height: 1.6; }
+p { 
+    line-height: 1.6;
+}
+
+article p {
+    hyphens: auto;
+}
 
 p.warning {
     font-weight: 500;
