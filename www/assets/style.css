@@ -17,6 +17,8 @@ p {
 }
 
 article p {
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
     hyphens: auto;
 }
 
